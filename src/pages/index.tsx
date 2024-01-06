@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Button, Grid, Snackbar, Typography } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
-import { colors } from '../assets/colors'
+import { colors } from '../assets/colors';
 import Container from '../components/general/container/Container';
 import Form from '../components/general/Form/Form';
 import AuthService from '../config/firebaseConfig';
@@ -25,7 +25,7 @@ const Login: React.FC = () => {
       const userCredential = await AuthService.signInWithEmailAndPassword(formData.email, formData.password);
       const accesToken = await userCredential.user?.getIdToken();
       localStorage.setItem("userToken", accesToken);
-      navigate('/entrevista');
+      navigate('/interview');
     } catch {
       setSnackbarMessage('Error al iniciar sesión. Por favor, verifica tus credenciales.');
       setSnackbarOpen(true);
@@ -40,7 +40,9 @@ const Login: React.FC = () => {
             Bienvenido a RecruitFlow
           </Typography>
           <Typography variant="body1" color={colors.blanco}>
-            la aplicación que utiliza la inteligencia artificial de OpenAI
+            La aplicación que utiliza la inteligencia artificial de OpenAI
+          </Typography>
+          <Typography variant="body1" color={colors.blanco}>
             para realizar entrevistas de trabajo de manera eficiente y personalizada.
           </Typography>
         </Box>
@@ -53,7 +55,7 @@ const Login: React.FC = () => {
             fields={fields}
             onSubmit={onLogin}
             submitButtonText="Iniciar Sesión"
-            additionalButton={<Button variant="outlined" style={{ backgroundColor: colors.azulProfundo, color: '#FFFFFF' }} fullWidth> ¿No tienes cuenta? ¡Regístrate aquí! </Button>}
+            additionalButton={<Button onClick={() => navigate("/register")} variant="outlined" style={{ backgroundColor: colors.azulProfundo, color: '#FFFFFF' }} fullWidth> ¿No tienes cuenta? ¡Regístrate aquí! </Button>}
           />
         </Container>
       </Grid>
