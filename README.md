@@ -28,3 +28,12 @@ export default {
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+
+1- Ejecuta el siguiente comando para instalar las dependencias necesarias:
+npm install
+
+2- Adjunto al email estarn las variables de entorno que deben pegarse en la raiz del proyecto
+
+3- Ejecutar el comando npm run dev para correr la app en el entorno local
+
