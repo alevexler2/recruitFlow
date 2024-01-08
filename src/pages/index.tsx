@@ -25,6 +25,7 @@ const Login: React.FC = () => {
       const userCredential = await AuthService.signInWithEmailAndPassword(formData.email, formData.password);
       const accesToken = await userCredential.user?.getIdToken();
       localStorage.setItem("userToken", accesToken);
+      localStorage.setItem("userEmail", JSON.stringify(userCredential.user.email));
       navigate('/interview');
     } catch {
       setSnackbarMessage('Error al iniciar sesión. Por favor, verifica tus credenciales.');

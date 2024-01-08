@@ -28,6 +28,20 @@ export class ApiClient {
     } catch (error) {
       throw error;
     }
+  };
+
+  async startChat(historyChat: any[] | undefined, endInterview: boolean, userEmail: string | null): Promise<AxiosResponse> {
+    const url = '/interviews';
+    try {
+      const response = await this.client.post(url, {
+        historyChat,
+        endInterview,
+        userEmail,
+      });
+      return response;
+    } catch (error) {
+      throw error;
+    }
   }
 
 }
