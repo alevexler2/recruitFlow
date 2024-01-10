@@ -6,7 +6,7 @@ export class ApiClient {
   constructor() {
     const token = localStorage.getItem('userToken');
     this.client = axios.create({
-      baseURL: import.meta.env.VITE_API_URL,
+      baseURL: import.meta.env.VITE_API_URL_PRODUCCION,
       headers: {
         Authorization: `Bearer ${token}`,
       },
